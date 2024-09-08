@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: imposto-service
+server:
+  port: 8085
