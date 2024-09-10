@@ -20,6 +20,6 @@ public class ImpostoController {
     @PostMapping
     public ResponseEntity calcularImposto(@RequestBody PedidoPayload pedidoPayload){
         BigDecimal impostoTotal = impostoService.calcularImpostosTotal(pedidoPayload);
-        return ResponseEntity.ok(Map.of("Total Imposto", impostoTotal));
+        return ResponseEntity.ok(Map.of("totalImposto", impostoTotal));
     }
 }
