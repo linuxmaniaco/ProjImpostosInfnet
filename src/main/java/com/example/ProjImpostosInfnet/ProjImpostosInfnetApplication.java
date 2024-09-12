@@ -2,8 +2,10 @@ package com.example.ProjImpostosInfnet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableFeignClients
 public class ProjImpostosInfnetApplication {
 
 	public static void main(String[] args) {
