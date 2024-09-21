@@ -2,6 +2,7 @@ package com.example.ProjImpostosInfnet.service;
 
 import com.example.ProjImpostosInfnet.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -10,6 +11,10 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class ImpostoService {
     private final ProdutoService produtoService;
+    @Value("${taxas.RJ}")
+    private BigDecimal taxaRJ;
+    @Value("${taxas.SP}")
+    private BigDecimal taxaSP;
     public BigDecimal calcularImpostosTotal(PedidoPayload pedidoPayload){
       return pedidoPayload.items().stream()
                 .map(this::calcularImpostos)
@@ -27,8 +32,8 @@ public class ImpostoService {
 
     private BigDecimal getTaxasIcms(ICMS icms){
         return switch (icms){
-            case RJ -> new BigDecimal("0.16");
-            case SP -> new BigDecimal("0.25");
+            case RJ -> taxaRJ;
+            case SP -> taxaSP;
         };
     }
 
