@@ -2,6 +2,7 @@ package com.example.ProjImpostosInfnet.service;
 
 import com.example.ProjImpostosInfnet.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @Service
 @RequiredArgsConstructor
 public class ImpostoService {
+    @Autowired
     private final ProdutoService produtoService;
     @Value("${taxas.RJ}")
     private BigDecimal taxaRJ;
